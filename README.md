@@ -2,28 +2,15 @@
 
 ## Tech/framework used 🔧
 
-| Command                | Description                          |     |
-|------------------------|--------------------------------------|-----|
-| React                  | Main Library                         |     |
-| TypeScript             | Language                             |     |
-| Google Maps JavaScript | API                                  |     |
-| Google Places          | API                                  |     |
-| Google Directions      | API                                  |     |
-| @react-google-maps/api | Library for better Google APIs usage |     |
-
-## Screenshots 📺
-
-<p align="center">
-    <img src="" alt="Screenshot">
-</p>
-
-<p align="center">
-    <img src="" alt="Screenshot">
-</p>
-
-<p align="center">
-    <img src="" alt="Screenshot">
-</p>
+| Command                | Description                          |    
+|------------------------|--------------------------------------|
+| React                  | Main Library                         |     
+| TypeScript             | Language                             |     
+| Material UI            | Components                           |     
+| Google Maps JavaScript | API                                  |     
+| Google Places          | API                                  |     
+| Google Directions      | API                                  |     
+| @react-google-maps/api | Library for better Google APIs usage |     
 
 ## Available scripts
 
