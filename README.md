@@ -22,4 +22,6 @@
 
 ## Live 📍
 
+https://maps-347815.web.app/
+
 ## License 🔱

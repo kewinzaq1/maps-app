@@ -1,5 +1,3 @@
-import { styled } from "@material-ui/core";
-import { CircularProgress } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { MapProvider } from "../Components";
@@ -13,10 +11,6 @@ export const libraries: (
   | "places"
   | "visualization"
 )[] = ["drawing", "places"];
-
-export const Progress = styled(CircularProgress)({
-  margin: "0 auto",
-});
 
 export const calculateCost = ({ distance, costPerKm }: CalculateCost) => {
   const kilometersCost = distance * costPerKm;

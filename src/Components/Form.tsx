@@ -9,9 +9,8 @@ import {
 } from "@mui/material";
 import { Autocomplete } from "@react-google-maps/api";
 import { styled } from "@mui/material/styles";
-import { useMap } from ".";
+import { Progress, useMap } from ".";
 import { useNavigate } from "react-router-dom";
-import { Progress } from "../Utils";
 import {
   darkWhite,
   fullBlack,
