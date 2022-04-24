@@ -2,10 +2,8 @@ import {screen} from "@testing-library/react";
 import {render} from "../Utils";
 import Map from "../Components/Map";
 import "jest-canvas-mock";
+import {ChildrenModel} from "../Utils/Models";
 
-interface AutoComplete {
-    children: JSX.Element;
-}
 
 jest.mock("@react-google-maps/api", () => ({
     useJsApiLoader: () => ({
@@ -13,7 +11,7 @@ jest.mock("@react-google-maps/api", () => ({
         loadError: null,
     }),
     GoogleMap: () => <div></div>,
-    Autocomplete: ({children}: AutoComplete) => <div>{children}</div>,
+    Autocomplete: ({children}: ChildrenModel) => <div>{children}</div>,
 }));
 
 test("render map", () => {

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { MapProvider } from "../Components";
 import { render as rtlRender } from "@testing-library/react";
+import { CalculateCost, SessionStorageState } from "./Models";
 
 export const libraries: (
   | "drawing"
@@ -17,11 +18,6 @@ export const Progress = styled(CircularProgress)({
   margin: "0 auto",
 });
 
-interface CalculateCost {
-  distance: number;
-  costPerKm: number;
-}
-
 export const calculateCost = ({ distance, costPerKm }: CalculateCost) => {
   const kilometersCost = distance * costPerKm;
   const fixedCost = kilometersCost * 1.1;
@@ -30,17 +26,11 @@ export const calculateCost = ({ distance, costPerKm }: CalculateCost) => {
   return Math.round(fixedCost + daysCost);
 };
 
-interface SessionState {
-  name: string;
-  initialValue?: unknown;
-  removeAfterRefresh?: boolean;
-}
-
 export const useSessionStorageState = ({
   name,
   initialValue,
   removeAfterRefresh,
-}: SessionState) => {
+}: SessionStorageState) => {
   const valueFromSessionStorage = sessionStorage.getItem(name);
 
   const [state, setState] = useState<typeof initialValue>(

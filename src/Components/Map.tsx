@@ -9,11 +9,6 @@ import {Input} from "./Shared";
 import {jsPDF} from "jspdf";
 import {darkWhite, green600, white} from "material-ui/styles/colors";
 
-const center = {
-    lat: 9.78105,
-    lng: 28.64182,
-};
-
 
 const Map = () => {
     const {
@@ -105,7 +100,6 @@ const Map = () => {
             }}
         >
             <GoogleMap
-                center={center}
                 zoom={15}
                 mapContainerStyle={{
                     width: "100%",

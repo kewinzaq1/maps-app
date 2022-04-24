@@ -20,6 +20,7 @@ import {
   green800,
 } from "material-ui/styles/colors";
 import { Input } from "./Shared";
+import { HistoryModel } from "../Utils/Models";
 
 const Form = () => {
   const {
@@ -39,23 +40,18 @@ const Form = () => {
   const originRef = useRef<HTMLInputElement>();
   const destinationRef = useRef<HTMLInputElement>();
 
-  interface HistoryElement {
-    origin: string;
-    destination: string;
-  }
-
   const createHistory = (newTrip: Object) => {
     const historyCopy = [...history];
     historyCopy.push(newTrip);
     setHistory(historyCopy);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const setRoute = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (destinationRef.current?.value && originRef.current?.value) {
       setOrigin(originRef.current.value);
       setDestination(destinationRef.current.value);
-      const historyElement: HistoryElement = {
+      const historyElement: HistoryModel = {
         origin: originRef.current.value,
         destination: destinationRef.current.value,
       };
@@ -92,7 +88,7 @@ const Form = () => {
           Select a route below to get the data you are interested in
         </Typography>
       </Box>
-      <Box component="form" onSubmit={handleSubmit}>
+      <Box component="form" onSubmit={setRoute}>
         <FormGroup>
           <Autocomplete>
             <Input placeholder={"Input Origin"} inputRef={originRef} required />
@@ -139,7 +135,7 @@ const Form = () => {
               {history.length === 1 ? "Last trip:" : "Last trips:"}
             </Typography>
             {history.map(
-              ({ destination, origin }: HistoryElement, index: number) => (
+              ({ destination, origin }: HistoryModel, index: number) => (
                 <li key={index} onClick={() => moveToMap(origin, destination)}>
                   <Typography variant={"subtitle1"} component={"p"}>
                     From <span>{origin}</span>
