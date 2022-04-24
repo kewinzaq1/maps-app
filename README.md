@@ -2,7 +2,7 @@
 
 ## Tech/framework used 🔧
 
-| Command                | Description                          |    
+| Name                   | Description                          |    
 |------------------------|--------------------------------------|
 | React                  | Main Library                         |     
 | TypeScript             | Language                             |     
