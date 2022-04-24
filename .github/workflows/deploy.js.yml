@@ -27,6 +27,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install -g yarn
     - name: yarn install and test
+      env:
+       REACT_APP_GOOGLE_API_KEY: ${{ secrets.REACT_APP_GOOGLE_API_KEY }}
+       REACT_APP_LIBS: ${{ secrets.REACT_APP_LIBS }}
       run: |
         yarn install
         yarn build
