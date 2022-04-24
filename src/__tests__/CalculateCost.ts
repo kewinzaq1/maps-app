@@ -1,10 +1,10 @@
-import { calculateCost } from "../Utils";
+import {calculateCost} from "../Utils";
 
-const { distance, costPerKm } = {
-  distance: 5000,
-  costPerKm: 5,
+const {distance, costPerKm} = {
+    distance: 5000,
+    costPerKm: 5,
 };
 
 test("calculate correct cost", () => {
-  expect(calculateCost({ distance, costPerKm })).toMatchInlineSnapshot(`34500`);
+    expect(calculateCost({distance, costPerKm})).toEqual(34500);
 });
