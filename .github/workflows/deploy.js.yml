@@ -26,13 +26,12 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install -g yarn
-    - name: yarn install and test
+    - name: yarn install and build
       env:
        REACT_APP_GOOGLE_API_KEY: ${{ secrets.REACT_APP_GOOGLE_API_KEY }}
        REACT_APP_LIBS: ${{ secrets.REACT_APP_LIBS }}
       run: |
         yarn install
-        yarn test
         yarn build
     - name: Archive Build
       uses: actions/upload-artifact@v2
