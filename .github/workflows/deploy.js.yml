@@ -32,6 +32,7 @@ jobs:
        REACT_APP_LIBS: ${{ secrets.REACT_APP_LIBS }}
       run: |
         yarn install
+        yarn test
         yarn build
     - name: Archive Build
       uses: actions/upload-artifact@v2
