@@ -4,12 +4,11 @@ import {
   Button as muiButton,
   FormGroup,
   Typography,
-  Alert,
   List,
 } from "@mui/material";
 import { Autocomplete } from "@react-google-maps/api";
 import { styled } from "@mui/material/styles";
-import { Progress, useMap } from ".";
+import { useMap } from ".";
 import { useNavigate } from "react-router-dom";
 import {
   darkWhite,
@@ -22,17 +21,7 @@ import { Input } from "./Shared";
 import { HistoryModel } from "../Utils/Models";
 
 const Form = () => {
-  const {
-    isError,
-    isPending,
-    error,
-    setOrigin,
-    setDestination,
-    isLoaded,
-    loadError,
-    history,
-    setHistory,
-  } = useMap();
+  const { setOrigin, setDestination, history, setHistory } = useMap();
 
   const navigate = useNavigate();
 
@@ -64,18 +53,6 @@ const Form = () => {
     setDestination(destination);
     navigate("map");
   };
-
-  if (!isLoaded || isPending) {
-    return <Progress />;
-  }
-
-  if (loadError || isError) {
-    return (
-      <Alert variant="outlined" severity="error">
-        {loadError?.message ?? error?.message}
-      </Alert>
-    );
-  }
 
   return (
     <Wrapper>

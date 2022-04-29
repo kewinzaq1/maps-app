@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { GoogleMap, DirectionsRenderer } from "@react-google-maps/api";
-import { Progress, useMap } from ".";
-import { Alert, Box, Typography, IconButton } from "@mui/material";
+import { useMap } from ".";
+import { Box, Typography, IconButton } from "@mui/material";
 import SaveIcon from "@mui/icons-material/Save";
 import { calculateCost } from "../Utils";
 import { useNavigate } from "react-router-dom";
@@ -10,18 +10,8 @@ import { jsPDF } from "jspdf";
 import { darkWhite, green600, white } from "material-ui/styles/colors";
 
 const Map = () => {
-  const {
-    setStatus,
-    origin,
-    setDistance,
-    destination,
-    isError,
-    setError,
-    error,
-    isLoaded,
-    loadError,
-    distance,
-  } = useMap();
+  const { setStatus, origin, setDistance, destination, setError, distance } =
+    useMap();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, setMap] = useState<google.maps.Map>();
   const [costPerKm, setCostPerKm] = useState(5);
@@ -80,14 +70,6 @@ const Map = () => {
       navigate("/");
     }
   }, [destination, directionResponse, navigate, origin]);
-
-  if (loadError || isError) {
-    return <Alert color={"error"}>{error?.message}</Alert>;
-  }
-
-  if (!isLoaded && !directionResponse) {
-    return <Progress />;
-  }
 
   return (
     <Box
